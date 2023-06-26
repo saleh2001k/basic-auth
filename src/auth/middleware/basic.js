@@ -21,7 +21,7 @@ async function basicAuthMiddleWare(req, res, next) {
       req.user = user;
       next();
     } else {
-      return res.status(401).json({ message: "Invalid credentials" });
+      res.status(401).json({ message: "Invalid credentials" });
     }
   } else {
     return res.status(401).json({ message: "Authorization header missing" });
