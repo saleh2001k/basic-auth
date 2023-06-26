@@ -1,4 +1,3 @@
-
 "use strict";
 const bcrypt = require("bcrypt");
 const base64 = require("base-64");
@@ -12,13 +11,21 @@ async function basicAuthMiddleWare(req, res, next) {
     const [username, password] = decodedValues.split(":");
 
     const user = await User.findOne({ where: { username } });
+
+    if (!user) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
     const isValid = await bcrypt.compare(password, user.password);
     if (isValid) {
       req.user = user;
       next();
     } else {
-      throw new Error("This user is unuth");
+      return res.status(401).json({ message: "Invalid credentials" });
     }
+  } else {
+    return res.status(401).json({ message: "Authorization header missing" });
   }
 }
+
 module.exports = basicAuthMiddleWare;
