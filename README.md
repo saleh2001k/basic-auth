@@ -1,7 +1,9 @@
 # Basic-auth
 This is a sample application that demonstrates basic authentication functionality using Node.js, Express, Sequelize, and SQLite. The application allows users to sign up and sign in using their credentials.
 
-##### [PR](https://github.com/saleh2001k/basic-auth/pull/2)
+
+##### [Deployed link](https://basic-auth-wbf7.onrender.com/)
+##### [PR ](https://github.com/saleh2001k/basic-auth/pull/2)
 
 ## Prerequisites
 
@@ -34,6 +36,11 @@ This is a sample application that demonstrates basic authentication functionalit
     └── server.js
 
 ```
+
+## UML Diagram:
+
+![UML](UML.png)
+
 
 ## API Endpoints
 
